@@ -22,11 +22,13 @@ jobs:
         run: |
           cd ./dev/client/my-app
           npm install
+          ls
         shell: bash
 
       - name: Building the React Project
         run: |
           npm run build
+          ls
           cd build
         shell: bash
         
