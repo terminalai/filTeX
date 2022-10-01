@@ -20,13 +20,12 @@ jobs:
           cd ./dev/client/my-app
           npm install
           npm run build
-          ls
         shell: bash
         
       - name: Deploy to foo-bar.surge.sh
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'filtex.surge.sh'
-          project: '.'
+          project: './dev/client/my-app'
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
