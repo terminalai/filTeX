@@ -1,7 +1,7 @@
 {
-  "name": "wow change colour",
-  "description": "changes colour of webpages, somehow doesn't work but ok",
-  "version": "1.01",
+  "name": "amogus detector",
+  "description": "finds amogi",
+  "version": "1.02",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
