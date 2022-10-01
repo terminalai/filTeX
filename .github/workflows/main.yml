@@ -22,7 +22,7 @@ jobs:
           npm run build
         shell: bash
         
-      - name: Deploy to foo-bar.surge.sh
+      - name: Deploy to filtex.surge.sh
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'filtex.surge.sh'
