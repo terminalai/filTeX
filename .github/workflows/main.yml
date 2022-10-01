@@ -1,10 +1,10 @@
 name: "React to Surge"
 
-# Controls when the workflow will run
+# Only push to surge if in app folder
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    paths:
+      - dev/client/**
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,22 +18,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Setup node.js Env
+      - name: Building React Project
         run: |
           cd ./dev/client/my-app
           npm install
-        shell: bash
-
-      - name: Building the React Project
-        run: |
           npm run build
-          cd build
         shell: bash
         
-      - name: Deploy to foo-bar.surge.sh
+      - name: Deploy to filtex.surge.sh
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'filtex.surge.sh'
-          project: '.'
+          project: './dev/client/my-app/build'
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
