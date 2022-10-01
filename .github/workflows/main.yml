@@ -24,9 +24,8 @@ jobs:
 
       - name: Building the React Project
         run: |
-          npm run build
           ls
-          cd build
+          npm run build
         shell: bash
         
       - name: Deploy to foo-bar.surge.sh
