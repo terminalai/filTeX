@@ -1,6 +1,12 @@
-# NTU Deep Learning Week Project
+# $filTeX$
 
-> By **NUSH Team 0** (Khang, Yuan Xi, Edden, Prannaya, Yu Pin and Yaw Tia)
+> By **NUSH Team 0**:
+> - Khang
+> - Yuan Xi
+> - Edden
+> - Prannaya
+> - Yu Pin
+> - Yaw Tia
 >
 > Made for NTU Deep Learning Week Hackathon 2022
 >
@@ -8,17 +14,20 @@
 
 ## Details
 
-### Theme
+2 Parts:
+- Chrome Extension
+- Chat room
 
-**AI and Smart Nation**!
+Indicates if content of message or website is not suitable for children
 
-AI and IoTs are important, very important
+## Theme
 
-Entire prompt:
-
+**AI and Smart Nation**
 > _"Develop AI models or IoT solutions that solve industrial or social problems in the new stage of society development. The Smart Nation is an initiative by the Government of Singapore to harness from info-comm tech, networks and big data to create tech-enabled solutions."_
 
-### Schedule
+Our AI is useful for children as they become more exposed to the internet in our digital nation. Thus, this is necessary to provide parents and children an additional layer of safety before content reaches their eyes.
+
+## Schedule
 
 Submission:
 
@@ -39,7 +48,7 @@ Round 2: (announced at 2pm)
 6pm: Award Ceremony
 
 
-### Rubrics
+## Rubrics
 
 40% Technical Difficulty (Execution, Task Difficulty)
 
@@ -49,15 +58,14 @@ Round 2: (announced at 2pm)
 
 10% Project Delivery (Prez, Readability, UI/UX)
 
-### Tech
+## Tech
 
-#### GPU Access
+### GPU Access
 
 - One Slot of 6 Hours per Team, need to fill in form online
 - go to MLDA Map at **S2.1-B4-01** in **EEE buildings, Handbook provides**
--
 
-#### Other Electronics
+### Other Electronics
 
 - We get to keep it if we use it!😄
 
@@ -68,7 +76,7 @@ Round 2: (announced at 2pm)
 
 (Mostly should be tracked in [Issues](https://github.com/terminalai/dlw-hack/issues))
 
-- [X] Set up Vue Template
+- [ ] Set up Chat Room [Webpage](filtex.surge.sh)
+- [ ] Set up Chrome Extension
 - [ ] Set up Flask Server
 - [ ] Set up Jetpack Compose App
-- [ ]
