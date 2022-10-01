@@ -15,14 +15,41 @@ changeColor.addEventListener("click", async () => {
   });
 });
 
-// The body of this function will be executed as a content script inside the
-// current page
+function insertCSS(css) {
+  let head = document.head || document.getElementsByTagName('head')[0],
+      style = document.createElement('style');
+
+  head.appendChild(style);
+
+  style.type = 'text/css';
+  if (style.styleSheet){
+    // This is required for IE8 and below.
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+// The body of this function will be executed as a content script inside the current page
 function setPageBackgroundColor() {
+  if (window.__once) return;
   chrome.storage.sync.get("color", ({ color }) => {
+    // insert css
+    /*
+    const head = (document.head || document.documentElement);
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.type = 'text/css';
+    style.href = chrome.runtime.getURL("/content.css");
+    head.appendChild(style);
+    */
+
+    let id = 0;
 
     const amongus_regex = /a\W*m\W*o\W*(n\W*g\W*u\W*s|n\W*g|g\W*u\W*s|n\W*g\W*i|g\W*i)/gim;
     const replacer = (match, offset, string) => {
-      return `<span style="border-style: solid; border-width: 3px; border-color: ${color}; border-radius: 2px;">${match}</span>`;
+      id++;
+      return `<input type="checkbox" class="check0" id="__check${id}"/><label for="__check${id}" id="__label${id}" style="border-color: ${color};" class="hide0">${match}</label>`;
     }
     
     // check function, returns new text
@@ -38,4 +65,5 @@ function setPageBackgroundColor() {
       node.parentElement.innerHTML = filter_text(node.parentElement.innerHTML);
     }
   });
+  window.__once = true;
 }

@@ -1,0 +1,20 @@
+.hide0 {
+  /*border-style: solid;*/
+  border-width: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all .1s ease;
+}
+
+.hide0:hover {
+  background-color: #222222;
+}
+
+.check0 {
+  display: none;
+}
+
+.check0:not(:checked) + label {
+  background-color: #000000;
+  color: #000000;
+}

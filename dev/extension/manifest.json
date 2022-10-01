@@ -1,12 +1,12 @@
 {
   "name": "amogus detector",
   "description": "finds amogi",
-  "version": "1.02",
+  "version": "1.01",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -22,5 +22,16 @@
     "48": "/images/get_started48.png",
     "128": "/images/get_started128.png"
   },
-  "options_page": "options.html"
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css" : ["content.css"]
+    }
+  ],
+  "web_accessible_resources": [{ 
+    "resources": ["content.css"],
+    "matches": ["<all_urls>"]
+  }]
 }
