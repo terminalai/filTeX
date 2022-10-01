@@ -1,27 +1,30 @@
 // HANDLE REDIRECTING IN THIS FILE!!!!
 
-import React from 'react';
+import React, { createRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import JoinRoom from './JoinRoomScreen'
+import ChatRoom from './ChatRoom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const nothingToVoid = () => {}
+const messageRef = createRef<HTMLInputElement>()
+const bidRef = createRef<HTMLSelectElement>()
+
+// sets the information inside the useState stuff I think
 const setInfor = (room: string, name:string, id:number) => {
   //declare xxx has join da room
 }
 
-const setDisplayRuns = (bool:boolean) => () => {
-  
-}
-
 root.render(
   <React.StrictMode>
-    <JoinRoom setInfor={setInfor} setDisplayRuns={setDisplayRuns(true)}/>
+    <ChatRoom roomCode={"ああああ"} sendMessage={nothingToVoid} leaveRoom={nothingToVoid} 
+    messageRef={messageRef} bidRef={bidRef}/>
   </React.StrictMode>
 );
 

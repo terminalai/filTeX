@@ -9,7 +9,6 @@ import { InputType } from 'zlib';
 
 interface DisplayRunsProps{
   setInfor: (room: string, name:string, id:number) => void;
-  setDisplayRuns: () => void
 }
 
 const JoinRoom:FC<DisplayRunsProps> = (props) => {  
@@ -70,11 +69,10 @@ const JoinRoom:FC<DisplayRunsProps> = (props) => {
           <p className='text-p'>Name:</p>
           <input id = "name" ref = {nameRef} placeholder="amogus" inputMode="text" className='text-input'/>
         </div>
-        <button className='text-button' onClick={submitForm}>Submit</button>
-        <button className='text-button' onClick={props.setDisplayRuns}>Display AI Simulation!</button>
+        <button className='text-button' onClick={submitForm}>Enter Room</button>
       </div>
       <div className='text-title'>
-        <p className='text-long'>Hewwo welcome to me Bridge Game nya~~~</p>
+        <p className='text-long'>Hewwo welcome to me Text App nya~~~</p>
       </div>
     </div>
   )

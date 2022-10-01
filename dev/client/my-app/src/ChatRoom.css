@@ -1,0 +1,98 @@
+.App {
+    text-align: center;
+  }
+  
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+  max-width: 18vw;
+  width: 18vw;
+  /*margin-right: 5vw;*/
+}
+
+.sidebar-title{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  overflow-wrap: break-word;
+  width: 100%;
+  height: 10vh;
+  font: 25px "Century Gothic", Futura, sans-serif;
+  background-color: rgb(169, 161, 255, 0.5);
+}
+
+.sidebar-message-log{
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  width: 100%;
+  min-height: 78vh;
+}
+
+.sidebar-message-0{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-wrap: break-word;
+  width: 96.5%;
+  padding: 1%;
+  font: 18px "Century Gothic", Futura, sans-serif;
+  background-color: rgb(155, 187, 255, 0.5);
+  border-left:2px solid rgb(0, 0, 0, 0.5);
+  border-right:2px solid rgb(0, 0, 0, 0.5);
+  border-top:1px solid rgb(0, 0, 0, 0.5);
+  border-bottom:1px solid rgb(0, 0, 0, 0.5);
+} 
+
+.sidebar-message-1{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-wrap: break-word;
+  width: 96.5%;
+  padding: 1%;
+  font: 18px "Century Gothic", Futura, sans-serif;
+  background-color: rgb(101, 150, 255, 0.5);
+  border-left:2px solid rgb(0, 0, 0, 0.5);
+  border-right:2px solid rgb(0, 0, 0, 0.5);
+  border-top:1px solid rgb(0, 0, 0, 0.5);
+  border-bottom:1px solid rgb(0, 0, 0, 0.5);
+}
+
+.sidebar-text{
+  width: 8.3vw;
+  font: 17px "Century Gothic", Futura, sans-serif;
+}
+
+.sidebar-button{
+  width: 8vw;
+  font: 17px "Century Gothic", Futura, sans-serif;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  position: absolute;
+  background-color: rgb(197, 215, 255, 0.5);
+  padding-bottom: 1vh;
+}
+  
