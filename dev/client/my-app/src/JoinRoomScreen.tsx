@@ -8,7 +8,7 @@ import { createRef } from 'react';
 import { InputType } from 'zlib';
 
 interface DisplayRunsProps{
-  setInfor: (room: string, name:string, id:number) => void;
+  setInfor: (room: string, name:string) => void;
 }
 
 const JoinRoom:FC<DisplayRunsProps> = (props) => {  
@@ -53,11 +53,12 @@ const JoinRoom:FC<DisplayRunsProps> = (props) => {
       return;
     }
     else{
-      console.log("Pong!")
+      props.setInfor(roomCode, name)
       //socket.emit("get-people-room", roomServer, name)
     }
   }
   // TODO change the placeholder text thing to something funnier
+  console.log("in joinroom screen")
   return (
     <div className='all-div'>
       <div className="flex-main">
