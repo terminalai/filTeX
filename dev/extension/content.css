@@ -7,8 +7,8 @@
 }
 
 .check0:not(:checked) + label.hide0:hover {
-  background-color: #222222;
-  color: #222222;
+  background-color: #111111;
+  color: #111111;
 }
 
 .check0 {
