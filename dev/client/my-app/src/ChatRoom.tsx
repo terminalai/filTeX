@@ -1,6 +1,6 @@
 import './ChatRoom.css'
 
-import React, { FC, useState } from "react"
+import React, { FC, useState, KeyboardEvent } from "react"
 import ReactDOM from "react-dom"
 
 import { createRef } from 'react';
@@ -34,18 +34,29 @@ interface ChatRoomProps{
 
 const ChatRoom:FC<ChatRoomProps> = (props) => {
 
+    const onKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+        // Get the code of pressed key
+        const keyCode = e.which || e.keyCode;    
+        // 13 represents the Enter key
+        if (keyCode === 13 && !e.shiftKey) {
+            //send the message
+            props.sendMessage()
+        }
+    };
+
     return <div key={props.messages.length}>
             <div className='sidebar'>
                 <div className='sidebar-title'>
-                {"Room Code: " + props.roomCode + "\nRoom Name: uwu im a cat nya" + "ああああ"}
+                {"Room Code: " + props.roomCode}
                 </div>
-                <div className='sidebar-message-log' key={props.messages.length}>
+                <div className='sidebar-message-log' key={props.messages.length} >
                     {props.messages.map((val, i) => 
                         <Message name={val[0]} message={val[1]} i={i}/>
                     )}
                 </div>
                 <div className='flex-row'>
-                    <textarea id = "message" placeholder="Message" inputMode="text" className='sidebar-text' ref={props.messageRef}/>
+                    <textarea id = "message" placeholder="Message" inputMode="text" 
+                    className='sidebar-text' ref={props.messageRef} onKeyDown={onKeyDown} />
                     <button onClick={props.sendMessage} className='sidebar-button'>
                     Send!
                     </button>

@@ -1,10 +1,11 @@
+#Command format
+#python isSlur.py <word> <threshold-optional>
+
 import numpy as np
-import pickle
-import gdown
-import tensorflow as tf
-from tensorflow.keras import layers, models
+from tensorflow.keras import models
 from PIL import Image, ImageDraw
-import os
+import warnings
+warnings.filterwarnings('ignore')
 import sys
 
 def word2img(rw, rh, txt):
@@ -16,22 +17,16 @@ def word2img(rw, rh, txt):
 
 
 def isSlur(word, threshold=0.5):
-    # if not os.path.exists("./isSlurModelv3"):
-    #     url = 'https://drive.google.com/file/d/1IQCTMrf_Kg3ERF1jfLbCgYw7m8rggjb4/view?usp=sharing'
-    #     output = 'isSlurModelv3'
-    #     gdown.download(url, output, quiet=True)
-    model = pickle.load(open('isSlurModelv3', 'rb'))
+    model = models.load_model('isSlurModel')
     rw = 200
     rh = 50
     prediction = model.predict(word2img(rw, rh, word.lower()).reshape((1, rh, rw, 1)))
     return np.all(prediction >= threshold)
 
-
-if len(sys.argv) > 3:
-    print('you have specified too many arguments')
-    sys.exit()
-if len(sys.argv) == 2:
-    print(isSlur(sys.argv[1]))
-else:
-    print(isSlur(sys.argv[1], float(sys.argv[2])))
-exit()
+if __name__ == "__main__":
+  if len(sys.argv) > 3:
+      print('you have specified too many arguments')
+  elif len(sys.argv) == 2:
+      print(isSlur(sys.argv[1]))
+  else:
+      print(isSlur(sys.argv[1], float(sys.argv[2])))

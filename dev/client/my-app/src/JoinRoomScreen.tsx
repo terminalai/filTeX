@@ -7,13 +7,25 @@ import ReactDOM from "react-dom"
 import { createRef } from 'react';
 import { InputType } from 'zlib';
 
+const makeid = (length:number) => {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
+
 interface DisplayRunsProps{
-  setInfor: (room: string, name:string) => void;
+  joinRoom: (room: string, name:string) => void;
 }
 
 const JoinRoom:FC<DisplayRunsProps> = (props) => {  
   const roomCodeRef = createRef<HTMLInputElement>()
   const nameRef = createRef<HTMLInputElement>()
+  const filtex = require('./sprites/filtex.png')
 
   const submitForm = () => {
     const roomCode = roomCodeRef.current?.value
@@ -53,7 +65,7 @@ const JoinRoom:FC<DisplayRunsProps> = (props) => {
       return;
     }
     else{
-      props.setInfor(roomCode, name)
+      props.joinRoom(roomCode, name)
       //socket.emit("get-people-room", roomServer, name)
     }
   }
@@ -64,7 +76,7 @@ const JoinRoom:FC<DisplayRunsProps> = (props) => {
       <div className="flex-main">
         <div className='flex-row-join'>
           <p className='text-p'>Room Code:</p>
-          <input id = "roomCode" ref = {roomCodeRef} placeholder="XYZW" inputMode="text" className='text-input' />
+          <input id = "roomCode" ref = {roomCodeRef} defaultValue={makeid(4)} inputMode="text" className='text-input' />
         </div>
         <div className='flex-row-join'>
           <p className='text-p'>Name:</p>
@@ -72,9 +84,7 @@ const JoinRoom:FC<DisplayRunsProps> = (props) => {
         </div>
         <button className='text-button' onClick={submitForm}>Enter Room</button>
       </div>
-      <div className='text-title'>
-        <p className='text-long'>Hewwo welcome to me Text App nya~~~</p>
-      </div>
+      <img className='img' src={filtex} alt={"filtex"}/>
     </div>
   )
 }
