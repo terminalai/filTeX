@@ -13,6 +13,23 @@
   }
 }
 
+.logo {
+  width: auto;
+  height: 9vh;
+  margin: 1.5vh;
+  display: inline;
+  transform: rotate(7deg)
+  /* padding-bottom: 20%; */
+  /* padding-left: calc(50%-10vw); */
+}
+
+.code {
+  font: 10vh "Lato", Futura, sans-serif;
+  margin: 0.5vh 2vw 0 2vw;
+  display: inline;
+  color: rgb(0, 0, 0);
+}
+
 .flex-row {
   display: flex;
   justify-content: center;
@@ -28,16 +45,17 @@
 
 .sidebar-title{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
+  vertical-align: middle;
   text-align: center;
   overflow-wrap: break-word;
   width: 100%;
-  height: 8vh;
+  height: 12vh;
   font: 25px "Century Gothic", Futura, sans-serif;
-  background-color: rgb(169, 161, 255, 0.5);
+  background-color: #F7B32B;
   white-space: pre-line;
 }
 
@@ -45,11 +63,12 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  width: 100%;
-  min-height: 75vh;
+  width: calc(100% - 2vmin);
+  min-height: 70vh;
+  border: 1vmin solid black;
 }
 
-.sidebar-message-0{
+/* .sidebar-message-0{
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -58,40 +77,151 @@
   padding-top: 0.3%;
   padding-bottom: 0.3%;
   box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.5);
+}  */
+
+.sidebar-message-0 {
+  padding: 0.4vh 0 0.4vh 2%;
+  border: 0.5vmin solid rgb(0, 0, 0, 0.7);
+  border-radius: 5vmin;
   font: 18px "Century Gothic", Futura, sans-serif;
-  background-color: rgb(155, 187, 255, 0.5);
-  border-top:1px solid rgb(0, 0, 0, 0.7);
-  border-bottom:1px solid rgb(0, 0, 0, 0.7);
-  padding-left: 0.5%;
-} 
+  margin: 2vh 0 2vh 5vw;
+  display: inline-block;
+  position: relative;
+  width: 50vw;
+  background-color: lightyellow;
+}
+
+.message-name-0 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-wrap: break-word;
+  width: calc(100% - 0.5%);
+  box-sizing: border-box;
+  font: 1.7rem "Lato", Futura, sans-serif;
+  font-weight: 600;
+  color: #115fdd;
+}
+
+.message-name-0:hover {
+  text-decoration-line: underline;
+  text-decoration-color: rgb(100, 17, 224);
+}
+
+.message-message-0 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-wrap: break-word;
+  width: calc(100% - 2%);
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.5rem;
+  padding-left: 2%;
+  white-space: pre-line;
+}
+
 
 .sidebar-message-1{
+  padding: 0.4vh 2% 0.4vh 2%;
+  border: 0.5vmin solid rgb(0, 0, 0, 0.7);
+  border-radius: 5vmin;
+  font: 18px "Century Gothic", Futura, sans-serif;
+  margin: 2vh 5vw 2vh auto;
+  display: inline-block;
+  position: relative;
+  width: 50vw;
+  background-color: lightcyan;
+} 
+.message-name-1 {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   overflow-wrap: break-word;
-  width: calc(100%);
-  padding-top: 0.3%;
-  padding-bottom: 0.3%;
+  width: calc(100% - 0.5%);
   box-sizing: border-box;
-  font: 18px "Century Gothic", Futura, sans-serif;
-  background-color: rgb(101, 150, 255, 0.5);
-  border-top:1px solid rgb(0, 0, 0, 0.7);
-  border-bottom:1px solid rgb(0, 0, 0, 0.7);
-  padding-left: 0.5%;
-} 
-
-.sidebar-text{
-  width: 80%;
-  font: 17px "Century Gothic", Futura, sans-serif;
-  height:4vw;
-  resize: none;
+  font: 1.7rem "Lato", Futura, sans-serif;
+  font-weight: 600;
+  color: #FF1D15;
 }
 
-.sidebar-button{
-  width: 8vw;
-  height: 2vw;
-  font: 17px "Century Gothic", Futura, sans-serif;
+.message-name-1:hover {
+  text-decoration-line: underline;
+  text-decoration-color: rgb(100, 17, 224);
+}
+
+.message-message-1 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-wrap: break-word;
+  width: calc(100% - 2%);
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.5rem;
+  padding-left: 2%;
+  white-space: pre-line;
+}
+
+.sidebar-text {
+  resize: none;
+  overflow: hidden;
+  font: 1.5rem "Lato", Futura, sans-serif;
+  width: 75vw;
+  color: rgb(0, 0, 0);
+  padding: 0.5vh 1vw 0.5vh 1vw;
+  border: 0 solid black;
+  border-bottom: solid black 0.5vw;
+  transition: all 250ms;
+}
+.sidebar-text:focus {
+  transform: translateY(-0.5vh);
+}
+
+.submitBtn {
+  width: 10vmin;
+  padding: 1.5vmin;
+  border-radius: 50%;
+  border: 0 solid transparent;
+  background-color: transparent;
+  transition: all 250ms;
+}
+
+.submitBtn:hover{
+  border: 0.4ch solid black;
+  background-color: lightskyblue;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  transform: translateY(-0.25vh);
+}
+
+.submitBtn:active {
+  border: 0.7ch solid black;
+  background-color: rgb(105, 175, 219);
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.leaveBtn {
+  width: 10vh;
+  margin: 1vh;
+  padding: 1.5vmin;
+  border-radius: 50%;
+  border: 0 solid transparent;
+  background-color: transparent;
+  transition: all 250ms;
+}
+
+.leaveBtn:hover {
+  border: 0.4ch solid black;
+  background-color: #ffaa00;
+  transform: translate(0.75vw);
+}
+
+.leaveBtn:active {
+  border: 0 solid black;
+  background-color: #F7B32B;
+  transform: translate(-0.25vw);
 }
 
 .sidebar {
@@ -103,34 +233,8 @@
   height: 100vh;
   align-items: center;
   position: absolute;
-  background-color: rgb(197, 215, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   padding-bottom: 1vh;
-}
-
-.message-name{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  overflow-wrap: break-word;
-  width: calc(100% - 0.5%);
-  box-sizing: border-box;
-  font: 18px "Century Gothic", Futura, sans-serif;
-  color: rgb(207, 17, 224);
-  padding-left: 0.5%;
-  text-decoration-line: underline;
-  text-decoration-color: rgb(207, 17, 224);
-}
-
-.message-message{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  overflow-wrap: break-word;
-  width: calc(100% - 2%);
-  box-sizing: border-box;
-  font: 18px "Century Gothic", Futura, sans-serif;
-  padding-left: 2%;
-  white-space: pre-line;
 }
 
 .message-flex{
