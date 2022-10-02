@@ -24,11 +24,9 @@ def isSlur(word, threshold=0.5):
     return np.all(prediction >= threshold)
 
 if __name__ == "__main__":
-  isSlur('nigger')
-
-# if len(sys.argv) > 3:
-#     print('you have specified too many arguments')
-# elif len(sys.argv) == 2:
-#     print(isSlur(sys.argv[1]))
-# else:
-#     print(isSlur(sys.argv[1], float(sys.argv[2])))
+  if len(sys.argv) > 3:
+      print('you have specified too many arguments')
+  elif len(sys.argv) == 2:
+      print(isSlur(sys.argv[1]))
+  else:
+      print(isSlur(sys.argv[1], float(sys.argv[2])))
