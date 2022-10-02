@@ -63,7 +63,8 @@ function MainComponent() {
             set(ref(database, "rooms/" + room + "/" + name), true)
         else {
             // Must have unique username
-            console.log("User already exists")
+            // eslint-disable-next-line no-restricted-globals
+            confirm("User already exists")
             return;
         }
 
@@ -84,7 +85,7 @@ function MainComponent() {
 
     const addMessage = (name: string, message: string) => {
         setMessages((prev) => {
-            const newPrev = JSON.parse(JSON.stringify(prev));
+            const newPrev = [...prev];
             newPrev.push([name, message]);
             messageRef.current!.value = "";
 

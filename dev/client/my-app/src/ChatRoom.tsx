@@ -49,7 +49,7 @@ const ChatRoom:FC<ChatRoomProps> = (props) => {
                 <div className='sidebar-title'>
                 {"Room Code: " + props.roomCode}
                 </div>
-                <div className='sidebar-message-log' key={props.messages.length}>
+                <div className='sidebar-message-log' key={props.messages.length} >
                     {props.messages.map((val, i) => 
                         <Message name={val[0]} message={val[1]} i={i}/>
                     )}

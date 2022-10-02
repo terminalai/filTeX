@@ -104,6 +104,7 @@
   transform: rotate(-23deg);
   width: 40vw;
   max-width: 40vw;
+  padding-bottom: 10%;
 }
 
 
@@ -114,7 +115,6 @@
 }
 
 .all-div{
-  background-color: rgb(169, 161, 255);
   overflow: hidden;
   /*background-image: url("./sprites/joinRoomBG.png");*/
 }
