@@ -18,10 +18,10 @@ def word2img(rw, rh, txt):
 
 def isSlur(word, threshold=0.7):
     if not os.path.exists("./isSlurModelv2"):
-        url = 'https://drive.google.com/file/d/1CBVaaOtQASTgiwJ-g_90vr0sN4bghWL2/view?usp=sharing'
-        output = 'isSlurModelv2'
+        url = 'https://drive.google.com/file/d/1FVagAXCV27rGNSCB1uzpSVKqIQ4B5t6p/view?usp=sharing'
+        output = 'isSlurModelv3'
         gdown.download(url, output, quiet=True)
-    model = pickle.load(open('isSlurModelv2', 'rb'))
+    model = pickle.load(open('isSlurModelv3', 'rb'))
     rw = 200
     rh = 50
     prediction = model.predict(word2img(rw, rh, word.lower()).reshape((1, rh, rw, 1)))
