@@ -48,8 +48,13 @@ const ChatRoom:FC<ChatRoomProps> = (props) => {
     return <div key={props.messages.length}>
             <div className='sidebar'>
                 <div className='sidebar-title'>
-                    <img src={filtex} className="logo" alt="I LOVE filTeX"></img>
+                    <button onClick={props.leaveRoom} className='leaveBtn'>
+                        <svg viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                        </svg>
+                    </button>
                     <span className="code"> {props.roomCode} </span>
+                    <img src={filtex} className="logo" alt="I LOVE filTeX"></img>
                 </div>
                 <div className='sidebar-message-log' key={props.messages.length} >
                     {props.messages.map((val, i) => 
@@ -59,15 +64,12 @@ const ChatRoom:FC<ChatRoomProps> = (props) => {
                 <div className='flex-row'>
                     <textarea id = "message" placeholder="Type Message Here!!" inputMode="text" 
                     className='sidebar-text' ref={props.messageRef} onKeyDown={onKeyDown} />
-                    <button onClick={props.sendMessage} className='sidebar-button'>
-                        <svg viewBox="0 0 24 24" className='submitBtn'>
+                    <button onClick={props.sendMessage} className='submitBtn'>
+                        <svg viewBox="0 0 24 24">
                             <path fill="currentColor" d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
                         </svg>
                     </button>
                 </div>
-                <button onClick={props.leaveRoom} className='sidebar-button'>
-                    Leave Room!
-                </button>
                 </div>
                 
             </div>

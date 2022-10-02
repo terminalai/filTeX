@@ -18,7 +18,7 @@
   height: 9vh;
   margin: 1.5vh;
   display: inline;
-  transform: rotate(-7deg)
+  transform: rotate(7deg)
   /* padding-bottom: 20%; */
   /* padding-left: calc(50%-10vw); */
 }
@@ -63,8 +63,9 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  width: 100%;
+  width: calc(100% - 2vmin);
   min-height: 70vh;
+  border: 1vmin solid black;
 }
 
 /* .sidebar-message-0{
@@ -180,15 +181,47 @@
 
 .submitBtn {
   width: 10vmin;
-  width: 10vmin;
+  padding: 1.5vmin;
+  border-radius: 50%;
+  border: 0 solid transparent;
+  background-color: transparent;
+  transition: all 250ms;
 }
 
-.sidebar-button{
-  background-color: transparent;
+.submitBtn:hover{
+  border: 0.4ch solid black;
+  background-color: lightskyblue;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  transform: translateY(-0.25vh);
+}
+
+.submitBtn:active {
+  border: 0.7ch solid black;
+  background-color: rgb(105, 175, 219);
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.leaveBtn {
+  width: 10vh;
+  margin: 1vh;
+  padding: 1.5vmin;
+  border-radius: 50%;
   border: 0 solid transparent;
-  width: 8vw;
-  height: 2vw;
-  font: 17px "Century Gothic", Futura, sans-serif;
+  background-color: transparent;
+  transition: all 250ms;
+}
+
+.leaveBtn:hover {
+  border: 0.4ch solid black;
+  background-color: #ffaa00;
+  transform: translate(0.75vw);
+}
+
+.leaveBtn:active {
+  border: 0 solid black;
+  background-color: #F7B32B;
+  transform: translate(-0.25vw);
 }
 
 .sidebar {

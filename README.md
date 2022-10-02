@@ -85,7 +85,7 @@ Last but certainly not least, we have developed an NLP model to identify such pr
   </tr>
   </tbody>
   </table>
-- [`Profanity Check's Combined Binary Classification Dataset (20k records)`](https://raw.githubusercontent.com/vzhou842/profanity-check/master/profanity_check/data/clean_data.csv)<br>This Dataset only contains binary labels of Profanity detection, but we utilise it as a larger unlabelled data source with some confirmation for pseudolabels.
+- [`Profanity Check's Combined Binary Classification Dataset (180k records)`](https://raw.githubusercontent.com/vzhou842/profanity-check/master/profanity_check/data/clean_data.csv)<br>This Dataset only contains binary labels of Profanity detection, but we utilise it as a larger unlabelled data source with some confirmation for pseudolabels.
 
 
 We then create a simplistic "Teacher" model, a small Bidirectional LSTM as trained via TensorFlow on Kaggle's Notebook feature. This is a small model which uses the advantage of using the smaller first data sample to train over a small period of time. After this, we pseudolabel the second dataset and verify the results. Following this, with $> 20\text{ k}$ results, we are well on our way to train a larger "Student" NLP Model (owing to the rules of [_"Knowledge Expansion"_](https://arxiv.org/abs/1911.04252) in Semi-Supervised Learning). We choose HuggingFace's RoBERTa due to it's smaller size and general accuracy when it comes to classification tasks. RoBERTa is trained on this dataset and later incorporated into the server.
