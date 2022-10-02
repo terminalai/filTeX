@@ -16,8 +16,13 @@
 .flex-row {
   display: flex;
   justify-content: center;
-  max-width: 18vw;
-  width: 18vw;
+  align-items: center;
+  min-height: 5vw;
+  max-width: 98%;
+  width: 98%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  gap: 1vw
   /*margin-right: 5vw;*/
 }
 
@@ -30,7 +35,7 @@
   text-align: center;
   overflow-wrap: break-word;
   width: 100%;
-  height: 13vh;
+  height: 8vh;
   font: 25px "Century Gothic", Futura, sans-serif;
   background-color: rgb(169, 161, 255, 0.5);
   white-space: pre-line;
@@ -41,7 +46,7 @@
   flex-direction: column;
   overflow: auto;
   width: 100%;
-  min-height: 78vh;
+  min-height: 75vh;
 }
 
 .sidebar-message-0{
@@ -77,12 +82,15 @@
 } 
 
 .sidebar-text{
-  width: 8.3vw;
+  width: 80%;
   font: 17px "Century Gothic", Futura, sans-serif;
+  height:4vw;
+  resize: none;
 }
 
 .sidebar-button{
   width: 8vw;
+  height: 2vw;
   font: 17px "Century Gothic", Futura, sans-serif;
 }
 
