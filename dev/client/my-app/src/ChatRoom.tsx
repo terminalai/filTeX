@@ -5,15 +5,15 @@ import TextareaAutosize from 'react-textarea-autosize';
 interface MessageProps{
     name: string
     message: string
+    danger: boolean
     i: number
 }
 
 const Message:FC<MessageProps> = (props) => {
-    console.log("the following message has been sent:" + props.message)
     return <div className={'sidebar-message-' + (props.i)}>
         <div className='message-flex'>
             <div className={'message-name-' + props.i}> {props.name} </div>
-            <div className={'message-message-' + props.i}> {props.message} </div>
+            <div className={'message-message-' + props.i} dangerouslySetInnerHTML={{__html: props.message}}></div>
         </div>
     </div>
 }
@@ -54,7 +54,7 @@ const ChatRoom:FC<ChatRoomProps> = (props) => {
                 </div>
                 <div className='sidebar-message-log' key={props.messages.length} >
                     {props.messages.map((val, i) => 
-                        <Message name={val[0]} message={val[1]} i={props.name == val[0] ? 1 : 0}/>
+                        <Message name={val[0]} message={val[1]} danger={false} i={props.name === val[0] ? 1 : 0}/>
                     )}
                 </div>
                 <div className='flex-row'>

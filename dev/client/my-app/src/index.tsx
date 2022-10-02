@@ -9,6 +9,7 @@ import ChatRoom from "./ChatRoom";
 
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, get, onChildAdded, connectDatabaseEmulator } from "firebase/database";
+import axios from "axios";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -70,11 +71,51 @@ function MainComponent() {
 
         // FIREBASE: ON room join, fetch all the data and hook up listener
         onChildAdded(ref(database, "messages/" + room), message => {
-            addMessage(message.val().username, message.val().message)
+            addMessage(message.val().username, message.val().message.replace(spoiler_regex, spoiler_replacer))
         });
 
         return true
     };
+
+    let id = 1;
+    // Spoiler Marking Code
+    const spoiler_regex = /__SPOILER__(.*?)\/__SPOILER__/g
+    const spoiler_replacer = (whole: string, match:string) => {
+        id++;
+        console.log(id, `Blocked word #${id}: ${match}`);
+        return `<input type="checkbox" class="check0" id="__check${id}"/><label for="__check${id}" id="__label${id}" class="hide0">${match}</label>`;
+    }
+
+    // check function, returns new text
+    async function filter_text(text: string) {
+        const words: any[] = [];
+        text.replace(/\w+/g, function (word) {
+            words.push(word);
+            return word;
+        });
+        if (words.length > 0) {
+            const slur: any[] = [];
+            let words_done = 0;
+            while (words_done < words.length) {
+                let string = "";
+                while (words_done < words.length && string.length < 100) {
+                    string += words[words_done] + ",";
+                    words_done++;
+                }
+                slur.push(...(await axios.get(`https://hohoho.pythonanywhere.com/isSlurMulti/${string}`)).data.split(","));
+            }
+            let i = -1;
+            text = text.replace(/\w+/g, function (word: string) {
+                i++;
+                if (slur[i] == "1") {
+                    return `__SPOILER__${word}/__SPOILER__`;
+                } else {
+                    return word;
+                }
+            });
+        }
+        return text;
+    }
 
     // sets the information inside the useState stuff I think
     const setInfor = (room: string, name: string) => {
@@ -100,10 +141,12 @@ function MainComponent() {
         console.log(message);
         if (message !== null && message !== undefined && message.length > 0) {
 
-            // Upload to server
-            set(ref(database, "messages/" + roomCode + "/" +  Date.now()), {
-                username:  name,
-                message:   message
+            filter_text(message).then(text => {
+                // Upload to server
+                set(ref(database, "messages/" + roomCode + "/" +  Date.now()), {
+                    username:  name,
+                    message: text
+                })
             })
 
         }
