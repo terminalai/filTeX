@@ -8,7 +8,7 @@ import JoinRoom from "./JoinRoomScreen";
 import ChatRoom from "./ChatRoom";
 
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, get, onChildAdded } from "firebase/database";
+import { getDatabase, ref, set, get, onChildAdded, connectDatabaseEmulator } from "firebase/database";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -34,6 +34,10 @@ const firebaseConfig = {
 // Initialize Firebase and Messaging Service
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
+if (location.hostname == "localhost") {
+    connectDatabaseEmulator(database, "localhost", 9000);
+}
 
 function MainComponent() {
     const [inChat, setInChat] = useState<boolean>(false);

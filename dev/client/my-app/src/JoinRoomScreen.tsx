@@ -74,17 +74,17 @@ const JoinRoom:FC<DisplayRunsProps> = (props) => {
   return (
     <div className='all-div'>
       <div className="flex-main">
+        <img className='img' src={filtex} alt={"filtex"}/>
         <div className='flex-row-join'>
           <p className='text-p'>Room Code:</p>
           <input id = "roomCode" ref = {roomCodeRef} defaultValue={makeid(4)} inputMode="text" className='text-input' />
         </div>
         <div className='flex-row-join'>
-          <p className='text-p'>Name:</p>
-          <input id = "name" ref = {nameRef} placeholder="amogus" inputMode="text" className='text-input'/>
+          <p className='text-p'>Username:</p>
+          <input id = "name" ref = {nameRef} placeholder="John" inputMode="text" className='text-input'/>
         </div>
-        <button className='text-button' onClick={submitForm}>Enter Room</button>
+        <button className='text-button' onClick={submitForm}>ENTER ROOM</button>
       </div>
-      <img className='img' src={filtex} alt={"filtex"}/>
     </div>
   )
 }
