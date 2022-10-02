@@ -1,0 +1,95 @@
+<html>
+
+<head></head>
+
+<body>
+    <input type="text" id="in" />
+    <button type="submit" id="btn">Send Message</button>
+</body>
+
+</html>
+
+<script type="module">
+    function requestPermission() {
+        console.log('Requesting permission...');
+        Notification.requestPermission().then((permission) => {
+            if (permission === 'granted') {
+                console.log('Notification permission granted.');
+            }
+            else { console.log('Notification permission not granted.') }
+        })
+    }
+    requestPermission();
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyBxtaVZ7g9QDoeungUefcJLMK6vdbMdeAc",
+        authDomain: "isad-a6e49.firebaseapp.com",
+        projectId: "isad-a6e49",
+        storageBucket: "isad-a6e49.appspot.com",
+        messagingSenderId: "800748532654",
+        appId: "1:800748532654:web:9864ce0cebc6e6eb178e3f",
+        measurementId: "G-NJ2RN012XQ"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Setting up Messaging Service
+    import { onMessage, getMessaging, getToken } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-messaging.js";
+
+    // Get registration token. Initially this makes a network call, once retrieved
+    // subsequent calls to getToken will return from cache.
+    const messaging = getMessaging(app);
+    getToken(messaging, { vapidKey: 'BFCPvGicZIjkqwLuu6ccqHSBVUM1eiIxyDeHscw53uy324rIgqNpoHJeiKmICDI_JXeyFTvjUAY29eYQbgeI4M0' }).then((currentToken) => {
+        if (currentToken) {
+            console.log("Token: ", currentToken);
+        } else {
+            // Show permission request UI
+            console.log('No registration token available. Request permission to generate one.');
+            // ...
+        }
+    }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+    });
+
+    async function registerWorker() {
+        console.log('Registering service worker');
+        const registration = await navigator.serviceWorker.
+            register('/firebase-messaging-sw.js', { scope: '/' });
+        console.log('Registered service worker');
+        const subscription = await registration.pushManager.
+            subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: 'BFCPvGicZIjkqwLuu6ccqHSBVUM1eiIxyDeHscw53uy324rIgqNpoHJeiKmICDI_JXeyFTvjUAY29eYQbgeI4M0'
+            });
+    }
+
+    if ('serviceWorker' in navigator) {
+        console.log('Registering service worker');
+        registerWorker().catch(error => console.error(error));
+    }
+
+    onMessage(messaging, payload => {
+        console.log(payload);
+    });
+
+    document.getElementById("btn").onclick = function () {
+        // Send a message to devices subscribed to the provided topic.
+        console.log(document.getElementById("in").value);
+        getMessaging().send(document.getElementById("in").value)
+            .then((response) => {
+                // Response is a message ID string.
+                console.log('Successfully sent message:', response);
+            })
+            .catch((error) => {
+                console.log('Error sending message:', error);
+            });
+    }
+</script>
