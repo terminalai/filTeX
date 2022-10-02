@@ -1,13 +1,13 @@
-from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageFont, ImageDraw, ImageFilter
 import pathlib
 import pytesseract
-from wand.image import Image as WandImage
 import math
+import os
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-# Turns a text into image and saves it to a file.
-def text_to_image(text, file_output_name):
+# Takes in text and returns a blurred Image of the text
+def text_to_image(text):
     # create an image
     iw, ih = 1000, 1000
     out = Image.new("RGB", (iw, ih), (255, 255, 255))
@@ -23,15 +23,17 @@ def text_to_image(text, file_output_name):
     # draw multiline text
     d.multiline_text((0, 0), text, font=fnt, fill=(0, 0, 0))
 
-    out.save(file_output_name, "JPEG")
+    return out.filter(ImageFilter.GaussianBlur(radius=3.5))
 
-# Blurs an image
-def blur_image(file_input_name, file_output_name):
-    with WandImage(filename=file_input_name) as img:
-        img.blur(radius=0, sigma=5)
-        img.save(filename=file_output_name)
+# Simple image to string, takes in an Image
+def get_text(image):
+    return pytesseract.image_to_string(image)
 
+"""
+Full proess of turning ascii text art into text data 
+ascii_text - text input
+temp_directory - directory for temporary file storage, temporary files will be deleted afterwards
+"""
+def ascii_to_text(ascii_text):
+    return get_text(text_to_image(ascii_text))
 
-# Simple image to string
-def get_text(file_input_name):
-    return pytesseract.image_to_string(Image.open(file_input_name))
