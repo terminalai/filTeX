@@ -1,11 +1,7 @@
 import './ChatRoom.css'
 
-import React, { FC, useState, KeyboardEvent } from "react"
-import ReactDOM from "react-dom"
-
-import { createRef } from 'react';
-import { InputType } from 'zlib';
-
+import React, { FC, KeyboardEvent } from "react"
+import TextareaAutosize from 'react-textarea-autosize';
 interface MessageProps{
     name: string
     message: string
@@ -62,7 +58,7 @@ const ChatRoom:FC<ChatRoomProps> = (props) => {
                     )}
                 </div>
                 <div className='flex-row'>
-                    <textarea id = "message" placeholder="Type Message Here!!" inputMode="text" 
+                    <TextareaAutosize id="message" maxRows={2} autoFocus placeholder="Type Message Here!!"
                     className='sidebar-text' ref={props.messageRef} onKeyDown={onKeyDown} />
                     <button onClick={props.sendMessage} className='submitBtn'>
                         <svg viewBox="0 0 24 24">
