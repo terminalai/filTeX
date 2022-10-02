@@ -1,7 +1,7 @@
 {
   "name": "FilTeX Extension",
   "description": "Filters and spoilers inappropriate content on websites",
-  "version": "1.02",
+  "version": "1.03",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
