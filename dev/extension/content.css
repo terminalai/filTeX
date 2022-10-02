@@ -20,6 +20,11 @@
   color: #050505;
 }
 
+.check0:not(:checked) + label::selection {
+  background-color: #fffffe;
+  color: #ffffff;
+}
+
 .check0:checked + label {
   background-color: #ffffff22;
 }
