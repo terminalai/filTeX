@@ -17,7 +17,7 @@ def word2img(rw, rh, txt):
 
 
 def isSlur(word, threshold=0.7):
-    if not os.path.exists("./isSlurModelv2"):
+    if not os.path.exists("./isSlurModelv3"):
         url = 'https://drive.google.com/file/d/1IQCTMrf_Kg3ERF1jfLbCgYw7m8rggjb4/view?usp=sharing'
         output = 'isSlurModelv3'
         gdown.download(url, output, quiet=True)
