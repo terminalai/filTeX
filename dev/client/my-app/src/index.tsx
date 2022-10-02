@@ -6,10 +6,9 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import JoinRoom from "./JoinRoomScreen";
 import ChatRoom from "./ChatRoom";
-import { render } from "@testing-library/react";
 
 import { initializeApp } from "firebase/app";
-import { getDatabase, connectDatabaseEmulator, ref, set, get, onChildAdded } from "firebase/database";
+import { getDatabase, ref, set, get, onChildAdded } from "firebase/database";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -36,11 +35,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-if (location.hostname === "localhost") {
-    // Point to the RTDB emulator running on localhost.
-    connectDatabaseEmulator(database, "localhost", 9000);
-}
-
 function MainComponent() {
     const [inChat, setInChat] = useState<boolean>(false);
     const [roomCode, setRoomCode] = useState<string>("");
@@ -65,15 +59,17 @@ function MainComponent() {
             // Must have unique username
             // eslint-disable-next-line no-restricted-globals
             confirm("User already exists")
-            return;
+            return false;
         }
+        
+        setInfor(room, name);
 
         // FIREBASE: ON room join, fetch all the data and hook up listener
         onChildAdded(ref(database, "messages/" + room), message => {
             addMessage(message.val().username, message.val().message)
         });
 
-        setInfor(room, name);
+        return true
     };
 
     // sets the information inside the useState stuff I think
@@ -87,7 +83,9 @@ function MainComponent() {
         setMessages((prev) => {
             const newPrev = [...prev];
             newPrev.push([name, message]);
-            messageRef.current!.value = "";
+
+            // If message added is not related to message
+            if (messageRef.current) messageRef.current.value = "";
 
             return newPrev;
         });
@@ -109,6 +107,7 @@ function MainComponent() {
 
     const leaveRoom = () => {
         set(ref(database, "rooms/" + roomCode + "/" + name), null);
+
         setMessages([]);
         setInChat(false)
     }
