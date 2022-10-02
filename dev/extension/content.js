@@ -111,8 +111,7 @@ async function main() {
   // create a treewalker to get all text in document
   const tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, tree_walker_filter, false);
   let prev_node = null;
-  while (tree.nextNode()) {
-    const node = tree.currentNode;
+  const set_prev_node = () => {
     if (prev_node != null) {
       const text = prev_node.parentElement.innerHTML;
       const result = text.replace(spoiler_regex, spoiler_replacer);
@@ -120,10 +119,15 @@ async function main() {
         prev_node.parentElement.innerHTML = result;
       }
     }
+  }
+  while (tree.nextNode()) {
+    const node = tree.currentNode;
+    set_prev_node();
     console.log(node.nodeValue);
     node.nodeValue = await filter_text(node.nodeValue);
     prev_node = node;
   }
+  set_prev_node();
 
   console.log("FilTeX is done!");
 }
