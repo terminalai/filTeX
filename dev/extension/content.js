@@ -47,6 +47,7 @@ async function main() {
   const spoiler_regex = /__SPOILER__(.*?)\/__SPOILER__/g
   const spoiler_replacer = (whole, match) => {
     id++;
+    console.log(id, `Blocked word #${id}: ${match}`);
     return `<input type="checkbox" class="check0" id="__check${id}"/><label for="__check${id}" id="__label${id}" class="hide0">${match}</label>`;
   }
 
@@ -119,37 +120,59 @@ async function main() {
 
   // create a treewalker to get all text in document
   const tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, tree_walker_filter, false);
+  const spoiler_text = (found) => {
+    const text = found.innerHTML;
+    //console.log(100, text);
+    //if (!spoiler_regex.test(text)) return;
+    const result = text.replace(spoiler_regex, spoiler_replacer);
+    //console.log(200, result);
+    if (result !== text) {
+      found.innerHTML = result;
+    }
+  }
   let prev_node = null;
+  let prev_parent = null;
   const set_prev_node = (node) => {
     if (prev_node != null && prev_node.parentElement != null) { // && (node == null || node.parentElement == prev_node.parentElement)) {
       const element = prev_node.parentElement;
+      //console.log(-2, element.innerHTML);
+      if (prev_parent != null && element != prev_parent) {
+        let p = element;
+        while (p != document.body && p != null && p != prev_parent) {
+          p = p.parentElement;
+        }
+        if (p != prev_parent) {
+          spoiler_text(prev_parent);
+          prev_parent = null;
+        }
+      }
+      if (!spoiler_regex.test(prev_node.nodeValue)) return;
       let found = null;
       if (element.children.length <= 0) {
         found = element;
       } else {
-        console.log(-1, prev_node.nodeValue);
+        //console.log(-1, prev_node.nodeValue);
         for (let i = 0; i < element.childNodes.length; i++) {
           if (element.childNodes[i].nodeValue == prev_node.nodeValue) {
             found = element.children[i];
+            if (found == null) if (i + 1 == element.childNodes.length) found = element;
+            else {
+              prev_parent = element;
+              return;
+            }
             console.log(i, found);
             break;
           }
         }
       }
       if (found == null) found = element;
-      const text = found.innerHTML;
-      console.log(100, text);
-      if (!spoiler_regex.test(text)) return;
-      const result = text.replace(spoiler_regex, spoiler_replacer);
-      if (result !== text) {
-        found.innerHTML = result;
-      }
+      spoiler_text(found);
     }
   }
   while (tree.nextNode()) {
     const node = tree.currentNode;
     set_prev_node(node);
-    console.log(node.nodeValue);
+    //console.log(node.nodeValue);
     node.nodeValue = await filter_text(node.nodeValue);
     prev_node = node;
   }
