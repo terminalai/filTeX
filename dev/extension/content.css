@@ -6,8 +6,9 @@
   transition: all .1s ease;
 }
 
-.hide0:hover {
-  background-color: #222222;
+.check0:not(:checked) + label.hide0:hover {
+  background-color: #111111;
+  color: #111111;
 }
 
 .check0 {
@@ -15,6 +16,10 @@
 }
 
 .check0:not(:checked) + label {
-  background-color: #000000;
-  color: #000000;
+  background-color: #050505;
+  color: #050505;
+}
+
+.check0:checked + label {
+  background-color: #ffffff22;
 }

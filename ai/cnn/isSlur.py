@@ -15,14 +15,15 @@ def word2img(rw, rh, txt):
   return np.array(img)[:,:,0]
 
 
-def isSlur(word, threshold=0.7):
-    if not os.path.exists("./isSlurModel"):
-        url = 'https://drive.google.com/file/d/1xIJ9aSKsIMzn1NtDEwwMdZIzhr5jM8pf/view?usp=sharing'
-        output = 'isSlurModel'
+def isSlur(word, threshold=0.5):
+    if not os.path.exists("./isSlurModelv3"):
+        url = 'https://drive.google.com/file/d/1IQCTMrf_Kg3ERF1jfLbCgYw7m8rggjb4/view?usp=sharing'
+        output = 'isSlurModelv3'
         gdown.download(url, output, quiet=True)
-    model = pickle.load(open('isSlurModel', 'rb'))
-    rs = 200
-    prediction = model.predict(word2img(rs, rs, word.lower()).reshape((1, rs, rs, 1)))
+    model = pickle.load(open('isSlurModelv3', 'rb'))
+    rw = 200
+    rh = 50
+    prediction = model.predict(word2img(rw, rh, word.lower()).reshape((1, rh, rw, 1)))
     return np.all(prediction >= threshold)
 
 
