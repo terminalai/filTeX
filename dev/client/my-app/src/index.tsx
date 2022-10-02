@@ -9,7 +9,7 @@ import ChatRoom from "./ChatRoom";
 import { render } from "@testing-library/react";
 
 import { initializeApp } from "firebase/app";
-import { getDatabase, connectDatabaseEmulator, ref, set, onValue, get } from "firebase/database";
+import { getDatabase, connectDatabaseEmulator, ref, set, get, onChildAdded } from "firebase/database";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -68,8 +68,8 @@ function MainComponent() {
         }
 
         // FIREBASE: ON room join, fetch all the data and hook up listener
-        onValue(ref(database, "messages/" + room), room => {
-            room.forEach((message) => { addMessage(message.val().username, message.val().message) })
+        onChildAdded(ref(database, "messages/" + room), message => {
+            addMessage(message.val().username, message.val().message)
         });
 
         setInfor(room, name);
