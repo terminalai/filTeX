@@ -32,7 +32,6 @@ def get_text(image):
 """
 Full process of turning ascii text art into text data 
 ascii_text - text input
-temp_directory - directory for temporary file storage, temporary files will be deleted afterwards
 """
 def ascii_to_text(ascii_text):
     return get_text(text_to_image(ascii_text))
