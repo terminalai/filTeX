@@ -30,7 +30,7 @@ def get_text(image):
     return pytesseract.image_to_string(image)
 
 """
-Full proess of turning ascii text art into text data 
+Full process of turning ascii text art into text data 
 ascii_text - text input
 temp_directory - directory for temporary file storage, temporary files will be deleted afterwards
 """
