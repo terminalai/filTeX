@@ -8,7 +8,7 @@ import JoinRoom from "./JoinRoomScreen";
 import ChatRoom from "./ChatRoom";
 
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, get, onChildAdded, connectDatabaseEmulator } from "firebase/database";
+import { getDatabase, ref, set, get, onChildAdded, connectDatabaseEmulator, Unsubscribe } from "firebase/database";
 import axios from "axios";
 
 const root = ReactDOM.createRoot(
@@ -35,6 +35,7 @@ const firebaseConfig = {
 // Initialize Firebase and Messaging Service
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+let messageListener: Unsubscribe | null = null;
 
 if (location.hostname == "localhost") {
     connectDatabaseEmulator(database, "localhost", 9000);
@@ -68,12 +69,16 @@ function MainComponent() {
         }
         
         setInfor(room, name);
-
+        
         // FIREBASE: ON room join, fetch all the data and hook up listener
-        onChildAdded(ref(database, "messages/" + room), message => {
-            addMessage(message.val().username, message.val().message.replace(spoiler_regex, spoiler_replacer))
-        });
+        if (!messageListener) 
+            messageListener = onChildAdded(ref(database, "messages/" + room), message => {
+                addMessage(message.val().username, message.val().message.replace(spoiler_regex, spoiler_replacer))
+            });
 
+        console.log(messageListener)
+            
+        
         return true
     };
 
@@ -129,9 +134,6 @@ function MainComponent() {
             const newPrev = [...prev];
             newPrev.push([name, message]);
 
-            // If message added is not related to message
-            if (messageRef.current) messageRef.current.value = "";
-
             return newPrev;
         });
     };
@@ -146,7 +148,7 @@ function MainComponent() {
                 set(ref(database, "messages/" + roomCode + "/" +  Date.now()), {
                     username:  name,
                     message: text
-                })
+                }).then(() => messageRef.current!.value = "")
             })
 
         }
@@ -154,6 +156,11 @@ function MainComponent() {
 
     const leaveRoom = () => {
         set(ref(database, "rooms/" + roomCode + "/" + name), null);
+
+        // Unsubscribe the listener
+        console.log(messageListener)
+        if (messageListener) {messageListener(); messageListener = null;}
+        console.log(messageListener)
 
         setMessages([]);
         setInChat(false)
