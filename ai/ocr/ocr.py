@@ -1,8 +1,5 @@
 from PIL import Image, ImageFont, ImageDraw, ImageFilter
-import pathlib
 import pytesseract
-import math
-import os
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
@@ -21,7 +18,7 @@ def text_to_image(text):
     w, h = d.textsize(text)
 
     # draw multiline text
-    d.multiline_text((0, 0), text, font=fnt, fill=(0, 0, 0))
+    d.multiline_text((iw/2 - w/2, ih/2 - h/2), text, font=fnt, fill=(0, 0, 0))
 
     return out.filter(ImageFilter.GaussianBlur(radius=3.5))
 

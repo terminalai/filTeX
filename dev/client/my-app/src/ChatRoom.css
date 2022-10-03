@@ -121,6 +121,37 @@
   white-space: pre-line;
 }
 
+.hide0 {
+  /*border-style: solid;*/
+  border-width: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline;
+  transition: all .1s ease;
+}
+
+.check0:not(:checked)+label.hide0:hover {
+  background-color: #111111;
+  color: #111111;
+}
+
+.check0 {
+  display: none;
+}
+
+.check0:not(:checked)+label {
+  background-color: #050505;
+  color: #050505;
+}
+
+.check0:not(:checked)+label::selection {
+  background-color: #fffffe;
+  color: #ffffff;
+}
+
+.check0:checked+label {
+  background-color: #ffffff22;
+}
 
 .sidebar-message-1{
   padding: 0.4vh 0 0.4vh 2%;

@@ -118,10 +118,6 @@ We have not just developed, but deployed our servers and clients online for peop
 
 Despite this obvious fact, it truly came home with this project, where we went into the coding process with well-established expectations and general expectations, which allowed us to develop more and more technologies and change a small amount of the original app, without it failing much of the rest.
 
-## What's next for FilTeX
-
-## Hackathon Details
-
 ### Theme - AI and Smart Nation
 
 > _"Develop AI models or IoT solutions that solve industrial or social problems in the new stage of society development. The Smart Nation is an initiative by the Government of Singapore to harness from info-comm tech, networks and big data to create tech-enabled solutions."_

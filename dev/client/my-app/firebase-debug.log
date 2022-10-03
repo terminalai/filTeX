@@ -1,59 +1,58 @@
-[debug] [2022-10-02T16:26:04.934Z] ----------------------------------------------------------------------
-[debug] [2022-10-02T16:26:04.937Z] Command:       /usr/local/bin/firebase /home/halogen/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
-[debug] [2022-10-02T16:26:04.937Z] CLI Version:   11.13.0
-[debug] [2022-10-02T16:26:04.937Z] Platform:      linux
-[debug] [2022-10-02T16:26:04.937Z] Node Version:  v16.16.0
-[debug] [2022-10-02T16:26:04.941Z] Time:          Mon Oct 03 2022 00:26:04 GMT+0800 (Singapore Standard Time)
-[debug] [2022-10-02T16:26:04.942Z] ----------------------------------------------------------------------
+[debug] [2022-10-02T20:02:43.925Z] ----------------------------------------------------------------------
+[debug] [2022-10-02T20:02:43.928Z] Command:       /usr/local/bin/firebase /home/halogen/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
+[debug] [2022-10-02T20:02:43.928Z] CLI Version:   11.13.0
+[debug] [2022-10-02T20:02:43.928Z] Platform:      linux
+[debug] [2022-10-02T20:02:43.928Z] Node Version:  v16.16.0
+[debug] [2022-10-02T20:02:43.936Z] Time:          Mon Oct 03 2022 04:02:43 GMT+0800 (Singapore Standard Time)
+[debug] [2022-10-02T20:02:43.936Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2022-10-02T16:26:05.084Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-10-02T16:26:05.085Z] > authorizing via signed-in user (yuanxi2005@gmail.com)
-[debug] [2022-10-02T16:26:05.468Z] openjdk version "11.0.11" 2021-04-20
+[debug] [2022-10-02T20:02:44.180Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-02T20:02:44.180Z] > authorizing via signed-in user (yuanxi2005@gmail.com)
+[debug] [2022-10-02T20:02:45.111Z] openjdk version "11.0.11" 2021-04-20
 OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
-[debug] [2022-10-02T16:26:05.470Z] 
 OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sharing)
 
-[debug] [2022-10-02T16:26:05.488Z] Parsed Java major version: 11
+[debug] [2022-10-02T20:02:45.160Z] Parsed Java major version: 11
 [info] i  emulators: Starting emulators: database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: database"}}
-[debug] [2022-10-02T16:26:05.523Z] [hub] writing locator at /tmp/hub-isad-a6e49.json
-[debug] [2022-10-02T16:26:05.552Z] > refreshing access token with scopes: []
-[debug] [2022-10-02T16:26:05.557Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2022-10-02T16:26:05.557Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2022-10-02T16:26:06.218Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2022-10-02T16:26:06.219Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2022-10-02T16:26:06.237Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/isad-a6e49 [none]
-[debug] [2022-10-02T16:26:08.058Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/isad-a6e49 200
-[debug] [2022-10-02T16:26:08.058Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/isad-a6e49 {"projectId":"isad-a6e49","projectNumber":"800748532654","displayName":"filTeX","name":"projects/isad-a6e49","resources":{"hostingSite":"isad-a6e49","realtimeDatabaseInstance":"isad-a6e49-default-rtdb"},"state":"ACTIVE","etag":"1_74adb9a6-b167-49d7-8724-1bb14736fd55"}
-[debug] [2022-10-02T16:26:08.058Z] database rules config:  [{"instance":"isad-a6e49-default-rtdb","rules":"/mnt/c/Users/yuanx/Desktop/CS/dlw-hack/dev/client/my-app/database.rules.json"}]
-[debug] [2022-10-02T16:26:08.066Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2022-10-02T16:26:08.067Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-10-02T16:26:08.067Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
-[debug] [2022-10-02T16:26:08.067Z] Starting Database Emulator with command {"binary":"java","args":["-Djava.net.preferIPv4Stack=true","-Duser.language=en","-jar","/home/halogen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar","--host","127.0.0.1","--port",9000],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Djava.net.preferIPv4Stack=true\",\"-Duser.language=en\",\"-jar\",\"/home/halogen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[debug] [2022-10-02T20:02:45.210Z] [hub] writing locator at /tmp/hub-isad-a6e49.json
+[debug] [2022-10-02T20:02:45.454Z] > refreshing access token with scopes: []
+[debug] [2022-10-02T20:02:45.457Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-10-02T20:02:45.458Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-02T20:02:45.804Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-10-02T20:02:45.804Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-02T20:02:45.839Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/isad-a6e49 [none]
+[debug] [2022-10-02T20:02:46.515Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/isad-a6e49 200
+[debug] [2022-10-02T20:02:46.516Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/isad-a6e49 {"projectId":"isad-a6e49","projectNumber":"800748532654","displayName":"filTeX","name":"projects/isad-a6e49","resources":{"hostingSite":"isad-a6e49","realtimeDatabaseInstance":"isad-a6e49-default-rtdb"},"state":"ACTIVE","etag":"1_85a93139-8ef2-4346-bff9-13f2a1cda90e"}
+[debug] [2022-10-02T20:02:46.517Z] database rules config:  [{"instance":"isad-a6e49-default-rtdb","rules":"/mnt/c/Users/yuanx/Desktop/CS/dlw-hack/dev/client/my-app/database.rules.json"}]
+[debug] [2022-10-02T20:02:46.539Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-10-02T20:02:46.540Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-10-02T20:02:46.540Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2022-10-02T20:02:46.542Z] Starting Database Emulator with command {"binary":"java","args":["-Djava.net.preferIPv4Stack=true","-Duser.language=en","-jar","/home/halogen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar","--host","127.0.0.1","--port",9000],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Djava.net.preferIPv4Stack=true\",\"-Duser.language=en\",\"-jar\",\"/home/halogen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
 [info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
-[debug] [2022-10-02T16:26:10.379Z] WARNING: An illegal reflective access operation has occurred
+[debug] [2022-10-02T20:02:48.888Z] WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/home/halogen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys
 WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
  {"metadata":{"emulator":{"name":"database"},"message":"WARNING: An illegal reflective access operation has occurred\nWARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/home/halogen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys\nWARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil\nWARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations\nWARNING: All illegal access operations will be denied in a future release\n"}}
-[debug] [2022-10-02T16:26:11.552Z] 00:26:11.550 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
- {"metadata":{"emulator":{"name":"database"},"message":"00:26:11.550 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
-[debug] [2022-10-02T16:26:11.846Z] 00:26:11.845 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
- {"metadata":{"emulator":{"name":"database"},"message":"00:26:11.845 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\n"}}
-[debug] [2022-10-02T16:26:12.121Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-10-02T16:26:12.122Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2022-10-02T16:26:12.122Z] Starting Emulator UI with command {"binary":"node","args":["/home/halogen/.cache/firebase/emulators/ui-v1.9.0/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/home/halogen/.cache/firebase/emulators/ui-v1.9.0/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[debug] [2022-10-02T20:02:50.617Z] 04:02:50.614 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"04:02:50.614 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
+[debug] [2022-10-02T20:02:51.036Z] 04:02:51.036 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"04:02:51.036 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\n"}}
+[debug] [2022-10-02T20:02:51.149Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-10-02T20:02:51.150Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-10-02T20:02:51.150Z] Starting Emulator UI with command {"binary":"node","args":["/home/halogen/.cache/firebase/emulators/ui-v1.9.0/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/home/halogen/.cache/firebase/emulators/ui-v1.9.0/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
 [info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2022-10-02T16:26:12.580Z] Web / API server started at 127.0.0.1:4000
+[debug] [2022-10-02T20:02:52.010Z] Web / API server started at 127.0.0.1:4000
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
-[debug] [2022-10-02T16:26:12.679Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=isad-a6e49-default-rtdb
-[debug] [2022-10-02T16:26:12.680Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\n  \"rules\": {\n    \".read\": \"now < 1667232000000\",  // 2022-11-1\n    \".write\": \"now < 1667232000000\",  // 2022-11-1\n  }\n}"
-[debug] [2022-10-02T16:26:13.270Z] 00:26:13.270 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - isad-a6e49-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 282ms, init: 0ms
- {"metadata":{"emulator":{"name":"database"},"message":"00:26:13.270 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - isad-a6e49-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 282ms, init: 0ms\n"}}
-[debug] [2022-10-02T16:26:13.454Z] 00:26:13.453 [NamespaceSystem-blocking-namespace-operation-dispatcher-7:isad-a6e49-default-rtdb$2038203122:] INFO com.firebase.core.namespace.StateManager - Namespace isad-a6e49-default-rtdb status Active to Active
- {"metadata":{"emulator":{"name":"database"},"message":"00:26:13.453 [NamespaceSystem-blocking-namespace-operation-dispatcher-7:isad-a6e49-default-rtdb$2038203122:] INFO com.firebase.core.namespace.StateManager - Namespace isad-a6e49-default-rtdb status Active to Active\n"}}
-[debug] [2022-10-02T16:26:13.517Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
-[debug] [2022-10-02T16:26:13.517Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
+[debug] [2022-10-02T20:02:52.227Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=isad-a6e49-default-rtdb
+[debug] [2022-10-02T20:02:52.228Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\n  \"rules\": {\n    \".read\": \"now < 1667232000000\",  // 2022-11-1\n    \".write\": \"now < 1667232000000\",  // 2022-11-1\n  }\n}"
+[debug] [2022-10-02T20:02:52.896Z] 04:02:52.896 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - isad-a6e49-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 259ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"04:02:52.896 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - isad-a6e49-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 259ms, init: 0ms\n"}}
+[debug] [2022-10-02T20:02:52.996Z] 04:02:52.995 [NamespaceSystem-blocking-namespace-operation-dispatcher-7:isad-a6e49-default-rtdb$692697738:] INFO com.firebase.core.namespace.StateManager - Namespace isad-a6e49-default-rtdb status Active to Active
+ {"metadata":{"emulator":{"name":"database"},"message":"04:02:52.995 [NamespaceSystem-blocking-namespace-operation-dispatcher-7:isad-a6e49-default-rtdb$692697738:] INFO com.firebase.core.namespace.StateManager - Namespace isad-a6e49-default-rtdb status Active to Active\n"}}
+[debug] [2022-10-02T20:02:53.065Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
+[debug] [2022-10-02T20:02:53.065Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
 [info] 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │
@@ -70,5 +69,5 @@ WARNING: All illegal access operations will be denied in a future release
 
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
-[debug] [2022-10-02T16:27:18.535Z] 00:27:18.534 [NamespaceSystem-akka.actor.default-dispatcher-13] INFO com.firebase.core.namespace.NamespaceActor - isad-a6e49 successfully activated FBKV (SurveyIdle(0)) wait: 131ms, init: 0ms
- {"metadata":{"emulator":{"name":"database"},"message":"00:27:18.534 [NamespaceSystem-akka.actor.default-dispatcher-13] INFO com.firebase.core.namespace.NamespaceActor - isad-a6e49 successfully activated FBKV (SurveyIdle(0)) wait: 131ms, init: 0ms\n"}}
+[debug] [2022-10-02T20:02:57.037Z] 04:02:57.036 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - isad-a6e49 successfully activated FBKV (SurveyIdle(0)) wait: 4ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"04:02:57.036 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - isad-a6e49 successfully activated FBKV (SurveyIdle(0)) wait: 4ms, init: 0ms\n"}}
