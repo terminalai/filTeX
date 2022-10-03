@@ -178,6 +178,11 @@ async function main() {
   }
   set_prev_node(null);
 
+  const body_result = document.body.innerHTML.replace(spoiler_regex, spoiler_replacer);
+  if (body_result !== document.body.innerHTML) {
+    document.body.innerHTML = body_result;
+  }
+
   console.log("FilTeX is done!");
 }
 
